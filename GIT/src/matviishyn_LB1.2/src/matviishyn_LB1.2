@@ -1,0 +1,55 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        int nRows;
+        char[][] arr;
+        String filler1, filler2;
+        Scanner in = new Scanner(System.in);
+        File dataFile = new File("MyFile.txt");
+        PrintWriter fout = new PrintWriter(dataFile);
+
+        System.out.print("Введіть розмір квадратної матриці: ");
+        nRows = in.nextInt();
+        in.nextLine();
+
+        if (nRows <= 0) {
+            System.out.println("Розмір матриці має бути більше 0.");
+            return;
+        }
+
+        arr = new char[nRows][nRows];
+
+        System.out.print("Введіть перший символ-заповнювач (лише один символ): ");
+        filler1 = in.nextLine();
+        if (filler1.length() != 1) {
+            System.out.println("Символ-заповнювач має бути лише один символ.");
+            return;
+        }
+
+        System.out.print("Введіть другий символ-заповнювач (лише один символ): ");
+        filler2 = in.nextLine();
+        if (filler2.length() != 1) {
+            System.out.println("Символ-заповнювач має бути лише один символ.");
+            return;
+        }
+
+        for (int i = 0; i < nRows; i++) {
+            for (int j = 0; j < nRows; j++) {
+                char filler = (i % 2 == 0) ? filler1.charAt(0) : filler2.charAt(0);
+                arr[i][j] = filler;
+                System.out.print(arr[i][j] + " ");
+                fout.print(arr[i][j] + " ");
+            }
+
+            System.out.println();
+            fout.println();
+        }
+
+        fout.flush();
+        fout.close();
+    }
+}

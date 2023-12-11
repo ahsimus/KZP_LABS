@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"matviishyn_LB","c":"matviishyn_LB","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"matviishyn_LB","c":"matviishyn_LB","l":"matviishyn_LB()","u":"%3Cinit%3E()"}];updateSearchResults();
